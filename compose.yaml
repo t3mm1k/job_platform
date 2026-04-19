@@ -1,25 +1,44 @@
 services:
+  mongo:
+    image: mongo:7
+    container_name: lab3_mongo
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - internal
+
   app:
     build:
       context: .
       dockerfile: app/Dockerfile
-    container_name: app
+    container_name: lab3_app
     environment:
       MONGODB_URI: mongodb://mongo:27017
       MONGODB_DB: job_platform
-    ports:
-      - "8000:8000"
     depends_on:
       - mongo
+    networks:
+      - internal
 
-  mongo:
-    image: mongo:7
-    container_name: mongo
-    restart: unless-stopped
+  web:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+      args:
+        REACT_APP_API_URL: /api
+        REACT_APP_YANDEX_MAPS_API_KEY: 0d17beb4-a2ec-4c18-8215-4d6648dff7a8
+    container_name: lab3_web
     ports:
-      - "27018:27017"
-    volumes:
-      - mongo_data:/data/db
+      - "8080:80"
+    depends_on:
+      - app
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
 
 volumes:
   mongo_data:
