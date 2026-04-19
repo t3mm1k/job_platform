@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "../../api/client";
+import { filterVacancies } from "../../utils/filterVacancies";
 export const fetchVacancies = createAsyncThunk("mapData/fetchVacancies", async (_, {
   signal
 }) => {
@@ -35,7 +36,6 @@ const vacanciesSlice = createSlice({
   reducers: {
     setCenter: (state, action) => {
       state.center = action.payload;
-      console.log("Store", state.center);
     },
     setVacancyTypeFilter: (state, action) => {
       state.filters.vacancy_type = action.payload;
@@ -56,41 +56,7 @@ const vacanciesSlice = createSlice({
       state.filters.position = action.payload;
     },
     filterData: state => {
-      state.filteredData = [];
-      if (!state.data) return;
-      for (const vacancy of state.data) {
-        let matchesFilter = true;
-        const vacancyType = (vacancy.vacancy_type || "").toLowerCase();
-        const vacancyCity = String(vacancy.address?.city ?? "").toLowerCase();
-        const filterCity = String(state.filters.city).toLowerCase();
-        if (state.filters.vacancy_type !== "" && vacancyType !== state.filters.vacancy_type) {
-          matchesFilter = false;
-          continue;
-        }
-        if (state.filters.time !== "" && state.filters.time !== vacancy.work_duration) {
-          matchesFilter = false;
-          continue;
-        }
-        if (!vacancy.is_active) {
-          matchesFilter = false;
-          continue;
-        }
-        if (state.filters.marketplaces.length > 0 && !state.filters.marketplaces.includes(vacancy?.marketplace)) {
-          matchesFilter = false;
-          continue;
-        }
-        if (state.filters.city !== "" && vacancyCity !== filterCity) {
-          matchesFilter = false;
-          continue;
-        }
-        if (state.filters.position !== "" && vacancy?.position !== state.filters.position) {
-          matchesFilter = false;
-          continue;
-        }
-        if (matchesFilter) {
-          state.filteredData.push(vacancy);
-        }
-      }
+      state.filteredData = filterVacancies(state.data, state.filters);
     },
     resetFilters: state => {
       state.filters = initialState.filters;
@@ -106,9 +72,9 @@ const vacanciesSlice = createSlice({
       state.error = null;
     }).addCase(fetchVacancies.fulfilled, (state, action) => {
       state.loading = false;
-      state.data = action.payload;
-      state.filteredData = action.payload;
-      vacanciesSlice.caseReducers.filterData(state);
+      const payload = action.payload ?? [];
+      state.data = payload;
+      state.filteredData = filterVacancies(payload, state.filters);
     }).addCase(fetchVacancies.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;

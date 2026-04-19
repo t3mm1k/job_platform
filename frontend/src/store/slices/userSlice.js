@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "../../api/client";
+import { buildResumeSavePayload } from "../../utils/resumePayload";
 const initialState = {
   _id: null,
   id: null,
@@ -23,16 +24,7 @@ export const updateResume = createAsyncThunk("user/updateResume", async (resumeD
   rejectWithValue
 }) => {
   try {
-    const body = {
-      user_id: resumeData.user_id,
-      first_name: resumeData.first_name ?? "",
-      last_name: resumeData.last_name ?? "",
-      experience: resumeData.experience ?? "",
-      desired_salary: resumeData.desired_salary ?? "",
-      phone: resumeData.phone,
-      additional_info: resumeData.additional_info ?? ""
-    };
-    return await api.saveResume(body);
+    return await api.saveResume(buildResumeSavePayload(resumeData));
   } catch (error) {
     return rejectWithValue(error.message);
   }

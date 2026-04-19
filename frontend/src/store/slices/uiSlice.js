@@ -11,7 +11,6 @@ const uiSlice = createSlice({
   reducers: {
     setIsTgMiniApp: (state, action) => {
       state.isTgMiniApp = action.payload;
-      console.log("isTgMiniApp", state.isTgMiniApp);
     },
     setFilterVisibility: (state, action) => {
       state.isFilterOpen = action.payload;

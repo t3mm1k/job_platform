@@ -1,7 +1,7 @@
+import { buildApiUrl } from "./url";
+
 function apiUrl(path) {
-  const base = (process.env.REACT_APP_API_URL || "").replace(/\/$/, "");
-  const p = path.startsWith("/") ? path : `/${path}`;
-  return `${base}${p}`;
+  return buildApiUrl(process.env.REACT_APP_API_URL, path);
 }
 async function requestJson(path, init = {}) {
   const res = await fetch(apiUrl(path), {

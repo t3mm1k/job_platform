@@ -15,8 +15,8 @@ function getDayWord(count) {
       return 'дней';
   }
 }
-function calculateDays(floatUnixTime, targetDays = 31) {
-  const currentDate = new Date();
+function calculateDays(floatUnixTime, targetDays = 31, now = new Date()) {
+  const currentDate = now;
   const pastDate = new Date(floatUnixTime * 1000);
   const diffMs = currentDate - pastDate;
   const daysPassed = diffMs / (1000 * 60 * 60 * 24);

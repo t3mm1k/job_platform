@@ -1,12 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { sortChatsByRecent, withStringMessageIds } from '../../utils/chatHelpers';
 const API_BASE_URL = process.env.REACT_APP_API_URL;
-const sortChats = chats => {
-  return [...chats].sort((a, b) => {
-    const timeA = a.last_message?.timestamp || a.created_at || 0;
-    const timeB = b.last_message?.timestamp || b.created_at || 0;
-    return timeB - timeA;
-  });
-};
 export const fetchChats = createAsyncThunk('chat/fetchChats', async ({
   userId,
   userType
@@ -22,7 +16,7 @@ export const fetchChats = createAsyncThunk('chat/fetchChats', async ({
       throw new Error(errorData.detail || 'Не удалось загрузить чаты');
     }
     const chats = await response.json();
-    return sortChats(chats);
+    return sortChatsByRecent(chats);
   } catch (error) {
     return rejectWithValue(error.message);
   }
@@ -42,10 +36,7 @@ export const fetchChatHistory = createAsyncThunk('chat/fetchChatHistory', async 
       throw new Error(errorData.detail || 'Не удалось загрузить историю чата');
     }
     const data = await response.json();
-    const processedMessages = (data.messages || []).map(msg => ({
-      ...msg,
-      id: String(msg._id)
-    }));
+    const processedMessages = withStringMessageIds(data.messages);
     return {
       chat: data.chat,
       messages: processedMessages,

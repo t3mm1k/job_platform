@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "../../api/client";
+import { filterCompaniesByCreatorId } from "../../utils/companyFilters";
+import { persistSelectedCompanyId } from "../../utils/selectedCompanyStorage";
 export const fetchAllCompanies = createAsyncThunk("company/fetchAllCompanies", async (_, {
   getState
 }) => {
@@ -28,11 +30,7 @@ const companySlice = createSlice({
       const v = action.payload;
       state.selectedCompanyId = v;
       state.isShowCompanySelector = false;
-      if (v == null || v === "") {
-        localStorage.removeItem("selectedCompanyId");
-      } else {
-        localStorage.setItem("selectedCompanyId", String(v));
-      }
+      persistSelectedCompanyId(v);
     },
     toggleEditMode: state => {
       state.isEditMode = !state.isEditMode;
@@ -46,7 +44,6 @@ const companySlice = createSlice({
     },
     addCompany: (state, action) => {
       state.allCompanies.push(action.payload);
-      console.log(state.allCompanies);
     }
   },
   extraReducers: builder => {
@@ -56,7 +53,7 @@ const companySlice = createSlice({
     builder.addCase(fetchAllCompanies.fulfilled, (state, action) => {
       state.loading = "succeeded";
       state.allCompanies = action.payload.companies;
-      state.userCompanies = action.payload.companies.filter(company => company.creator_id === action.payload.userId);
+      state.userCompanies = filterCompaniesByCreatorId(action.payload.companies, action.payload.userId);
     });
     builder.addCase(fetchAllCompanies.rejected, (state, action) => {
       state.loading = "failed";
