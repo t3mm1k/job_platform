@@ -15,7 +15,7 @@
 
 ## Тестирование и CI
 
-- В репозитории настроен workflow [`.github/workflows/frontend-tests.yml`](.github/workflows/frontend-tests.yml): установка зависимостей (`npm ci` в `frontend`) и однократный прогон тестов (`npm run test:ci`).
+- [`.github/workflows/frontend-tests.yml`](.github/workflows/frontend-tests.yml)
 - Локально из каталога `frontend`:
 
 ```bash
