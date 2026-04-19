@@ -2,8 +2,6 @@
 
 [![Frontend tests](https://github.com/t3mm1k/job_platform/actions/workflows/frontend-tests.yml/badge.svg)](https://github.com/t3mm1k/job_platform/actions/workflows/frontend-tests.yml)
 
-Статус бейджа соответствует последнему прогону workflow **Frontend tests** (юнит-тесты React-приложения в каталоге `frontend`) на GitHub Actions при push и pull request.
-
 ## Требования
 
 Для развертывания системы необходимо установленное средство контейнеризации:
@@ -14,8 +12,6 @@
 Для локальной разработки фронтенда без Docker: **Node.js 20+** и npm.
 
 ## Тестирование и CI
-
-- [`.github/workflows/frontend-tests.yml`](.github/workflows/frontend-tests.yml)
 - Локально из каталога `frontend`:
 
 ```bash
