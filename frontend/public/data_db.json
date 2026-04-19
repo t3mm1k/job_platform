@@ -1,0 +1,48 @@
+[
+{
+  "_id": "67c32070947a81720e2e6240",
+  "vacancy_type": "full-time",
+  "photo": [],
+  "address": {
+    "latitude": 56.000208,
+    "longitude": 92.784332,
+    "city": "Санкт-Петербург"
+  },
+  "marketplace": "Ozon",
+  "position": "Оператор пункта выдачи заказов",
+  "salary": "10000",
+  "schedule": "5/2",
+  "payment": "1 раз в месяц",
+  "experience": "Не требуется",
+  "extras": "",
+  "scope": "",
+  "additionalInfo": "",
+  "employer_id": 6978953938,
+  "phone_number": "78987898797",
+  "is_active": true
+},
+{
+  "_id": "67c321de730cba5d9516617a",
+  "vacancy_type": "part-time",
+  "photo": [],
+  "address": {
+    "latitude": 55.890287,
+    "longitude": 37.587995,
+    "city": "Москва"
+  },
+  "marketplace": "Ozon",
+  "position": "Оператор пункта выдачи заказов",
+  "salary": "3000",
+  "dates": [
+    "02.03.2025"
+  ],
+  "payment": "Сразу после смены",
+  "experience": "Не требуется",
+  "extras": "",
+  "scope": "",
+  "additionalInfo": "",
+  "employer_id": 494919211,
+  "phone_number": "89151110866",
+  "is_active": false
+}
+]

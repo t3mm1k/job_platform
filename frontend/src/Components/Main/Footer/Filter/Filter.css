@@ -1,0 +1,70 @@
+.filters-container {
+    @apply bg-[color:var(--second-background-color)] order-4 overflow-hidden rounded-[15px_15px_0px_0px] border-0;
+    margin: 0px;
+    max-height: 1000px;
+    transition: max-height 0.3s ease-in-out; /* Add transition for smooth animation */
+    border-bottom: 1px solid rgba(255, 255, 255, 10%);
+}
+
+.filters-container.collapsed {
+    max-height: 0;
+    overflow: hidden
+}
+.filters-content {
+    @apply flex flex-col gap-[7px] px-5 py-[15px];
+    /* Ensure content doesn't overflow during animation */
+}
+
+.hidden {
+    display: none; /* Скрываем элемент */
+}
+.filter-section {
+    @apply flex justify-between gap-[7px] shrink;
+}
+.toggle-button {
+    @apply flex grow bg-[color:var(--second-background-color)] text-[color:var(--text-color)] items-center gap-2.5 font-bold text-[8px] uppercase min-w-min p-2.5 rounded-[10px] border-[solid] border;
+
+}
+.marketplace-button img {
+    @apply h-6 w-6 rounded-[50%];
+}
+.toggle-button.active {
+    @apply bg-[color:var(--text-color)] text-[color:var(--second-background-color)];
+}
+.circle {
+    @apply border w-[15px] h-[15px] rounded-[100px] border-[solid];
+}
+.circle.active {
+    /*@apply bg-[color:var(--text-color)] w-[11px] h-[11px];*/
+    outline: var(--second-background-color) 2px solid;
+}
+.marketplace-logos {
+    @apply grid grid-cols-[repeat(3,auto)] grid-rows-[repeat(2,auto)] gap-[5px] w-full;
+}
+.marketplace-button {
+    @apply p-[5px] border-0;
+}
+.marketplace-button.active {
+    @apply bg-[color:var(--second-background-color)] text-[color:var(--text-color)];
+    outline: var(--text-color) 1px solid;
+}
+.filter-select {
+    @apply font-bold text-[8px] opacity-50 bg-[15px] border appearance-none w-full text-[color:var(--text-color)] p-2.5 rounded-[10px] border-[solid];
+    background: var(--second-background-color) url("../../../../../public/img/icons/expand_down.svg")
+    no-repeat right 10px center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+}
+.filter-section-title {
+    @apply font-bold text-[8px] leading-[100%] tracking-[0%] uppercase opacity-[50%] m-0;
+}
+
+.date-select{
+    @apply font-bold text-[var(--second-background-color)] rounded-[0.6rem] p-2 flex-grow text-center;
+    background: white url("../../../../../public/img/icons/expand_down_dark.svg")
+    no-repeat right 5px center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+}

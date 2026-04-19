@@ -1,0 +1,53 @@
+/* src/Components/Map/Map.css */
+
+
+/*#map {*/
+/*    position: absolute;*/
+/*    top: 10px;*/
+/*    left: 10px;*/
+/*    width: calc(100% - 20px);*/
+/*    height: calc(100% - 20px);*/
+/*    z-index: 1;*/
+/*    background-color: white;*/
+/*}*/
+
+
+#map > ymaps {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.custom-marker {
+    @apply flex items-center bg-gray-800 rounded-lg p-1 gap-1 w-max whitespace-nowrap transition-all duration-300 ease-in-out;
+}
+
+.custom-marker.icon-only {
+    @apply w-8 h-8 p-0 overflow-hidden bg-transparent;
+}
+
+.custom-marker.icon-only img {
+    @apply w-8 h-8;
+}
+
+.custom-marker.icon-only .marker-context {
+    @apply hidden;
+}
+
+.custom-marker img {
+    @apply w-6 h-6 rounded-full;
+}
+
+.marker-context {
+    @apply flex flex-col items-start p-0;
+}
+
+.marker-context p {
+    @apply text-xs text-white font-bold uppercase whitespace-nowrap p-0 m-0;
+}
+
+.marker-context p:last-child {
+    @apply text-[8px] font-normal;
+}
+.cluster-circle {
+    @apply flex items-center justify-center w-8 h-8 rounded-full bg-gray-800 text-white text-sm font-medium;
+}

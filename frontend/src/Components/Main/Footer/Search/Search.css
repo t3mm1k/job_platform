@@ -1,0 +1,16 @@
+.search {
+    @apply flex flex-col bg-[color:var(--second-background-color)] rounded-t-[15px];
+    margin: 0px;
+    max-height: 1000px;
+    transition: max-height 0.3s ease-in-out; /* Add transition for smooth animation */
+    border-bottom: 1px solid rgba(255, 255, 255, 10%);
+}
+
+.search.collapsed {
+    max-height: 0;
+    overflow: hidden
+}
+
+.search-prompt:last-child {
+    border-bottom: none;
+}

@@ -1,0 +1,15 @@
+.cluster-selection {
+    @apply flex flex-col bg-[color:var(--second-background-color)] rounded-t-[15px];
+    margin: 0px;
+    max-height: 1000px;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.cluster-selection.collapsed {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.cluster-selection button:last-child {
+    border-width: 0;
+}

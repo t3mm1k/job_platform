@@ -1,0 +1,22 @@
+input::placeholder {
+    color: white;
+    font-size: 8px; /* Match label font size */
+}
+
+/* For Firefox */
+input::-moz-placeholder {
+    color: white;
+    font-size: 8px;
+}
+
+/* For Microsoft Edge */
+input::-ms-input-placeholder {
+    color: white;
+    font-size: 8px;
+}
+
+/* For Internet Explorer */
+input:-ms-input-placeholder {
+    color: white;
+    font-size: 8px;
+}

@@ -1,0 +1,94 @@
+[
+  {
+    "coordinates": [37.6173, 55.7558],
+    "vacancy_type": "full-time",
+    "marketplace": "Wildberries",
+    "city": "Москва",
+    "position": "Оператор ПВЗ",
+    "adInfo": "1"
+  },
+  {
+    "coordinates": [37.6273, 55.7658],
+    "vacancy_type": "part-time",
+    "time": "1-day",
+    "marketplace": "Yandex",
+    "city": "Москва",
+    "position": "Оператор ПВЗ",
+    "adInfo": "2"
+  },
+  {
+    "coordinates": [37.5, 55.6],
+    "vacancy_type": "part-time",
+    "time": "1-week",
+    "marketplace": "Ozon",
+    "city": "Москва",
+    "position": "Оператор ПВЗ",
+    "adInfo": "3"
+  },
+  {
+    "coordinates": [37.7, 55.8],
+    "vacancy_type": "full-time",
+    "marketplace": "Avito",
+    "city": "Москва",
+    "position": "Управляющий",
+    "adInfo": "4"
+  },
+  {
+    "coordinates": [37.4, 55.9],
+    "vacancy_type": "part-time",
+    "time": "1-month",
+    "marketplace": "Boxberry",
+    "city": "Москва",
+    "position": "Оператор ПВЗ",
+    "adInfo": "5"
+  },
+  {
+    "coordinates": [37.4, 55.9],
+    "vacancy_type": "full-time",
+    "marketplace": "Wildberries",
+    "city": "Москва",
+    "position": "Управляющий",
+    "adInfo": "6"
+  },
+  {
+    "coordinates": [37.6473, 55.7858],
+    "vacancy_type": "full-time",
+    "marketplace": "Yandex",
+    "city": "Москва",
+    "position": "Оператор ПВЗ",
+    "adInfo": "7"
+  },
+  {
+    "coordinates": [37.6473, 55.7858],
+    "vacancy_type": "full-time",
+    "marketplace": "Yandex",
+    "city": "Москва",
+    "position": "Управляющий",
+    "adInfo": "8"
+  },
+  {
+    "coordinates": [37.71, 55.81],
+    "vacancy_type": "part-time",
+    "time": "more-1-month",
+    "marketplace": "Avito",
+    "city": "Москва",
+    "position": "Оператор ПВЗ",
+    "adInfo": "9"
+  },
+  {
+    "coordinates": [37.41, 55.81],
+    "vacancy_type": "full-time",
+    "marketplace": "Boxberry",
+    "city": "Москва",
+    "position": "Управляющий",
+    "adInfo": "10"
+  },
+  {
+    "coordinates": [36.31538, 55.95033],
+    "vacancy_type": "full-time",
+    "marketplace": "Boxberry",
+    "city": "Санкт-Петербург",
+    "position": "Оператор ПВЗ",
+    "adInfo": "11"
+  }
+]
