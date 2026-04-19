@@ -1,8 +1,7 @@
 from pymongo.collection import Collection
 
-
 class BaseRepository:
-    __slots__ = ("_collection",)
+    __slots__ = ('_collection',)
 
     def __init__(self, collection: Collection) -> None:
         self._collection = collection
